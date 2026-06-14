@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MovieHub – Browse, search, and recommend movies." />
+  <title>MovieHub – Movie Recommendation & Management</title>
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+  <!-- Bootstrap Icons -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════
+       NAVBAR
+  ════════════════════════════════════════════════════ -->
+  <nav class="navbar navbar-expand-lg navbar-dark mh-navbar fixed-top" id="mainNavbar">
+    <div class="container-xl px-3 px-lg-4">
+
+      <a class="navbar-brand mh-brand" href="index.html">
+        <i class="bi bi-film"></i> MovieHub
+      </a>
+
+      <button
+        class="navbar-toggler border-0 ms-auto me-2"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navMenu"
+        aria-controls="navMenu"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">
+              <i class="bi bi-house-fill me-1"></i>Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#genres-section">
+              <i class="bi bi-grid-fill me-1"></i>Browse
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#recommendSection">
+              <i class="bi bi-plus-circle me-1"></i>Recommend
+            </a>
+          </li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0">
+          <a href="admin.html" class="btn btn-outline-danger btn-sm px-3">
+            <i class="bi bi-shield-lock-fill me-1"></i>Admin Panel
+          </a>
+          <button class="mh-theme-toggle" id="themeToggle" title="Toggle dark / light mode" aria-label="Toggle colour theme">
+            <i class="bi bi-moon-fill" id="themeIcon"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════
+       HERO SECTION
+  ════════════════════════════════════════════════════ -->
+  <section class="mh-hero" id="heroSection" aria-label="Featured movie banner">
+    <div class="mh-hero-overlay" aria-hidden="true"></div>
+
+    <!-- Populated dynamically by app.js > populateHero() -->
+    <div class="mh-hero-content" id="heroContent">
+      <div class="mh-hero-badge">
+        <i class="bi bi-film"></i> MovieHub
+      </div>
+      <h1 class="mh-hero-title">Discover Great Cinema</h1>
+      <p class="mh-hero-desc">
+        Browse hundreds of movies, filter by genre, and share your own recommendations.
+      </p>
+      <button class="btn btn-danger btn-lg mh-cta-btn" id="heroCta">
+        <i class="bi bi-play-fill me-2"></i>Browse Movies
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       MAIN CONTENT
+  ════════════════════════════════════════════════════ -->
+  <main class="container-xl px-3 px-lg-4 py-5" id="mainContent">
+
+    <!-- ─── Search & Filter ─────────────────────────────── -->
+    <section class="mb-4" id="genres-section" aria-label="Search and filter">
+      <div class="row g-3 align-items-center">
+
+        <!-- Search box -->
+        <div class="col-12 col-md-6">
+          <div class="mh-search-wrap">
+            <i class="bi bi-search mh-search-icon" aria-hidden="true"></i>
+            <input
+              type="search"
+              class="mh-search-input form-control"
+              id="searchInput"
+              placeholder="Search movies by title…"
+              autocomplete="off"
+              aria-label="Search movies"
+            />
+          </div>
+        </div>
+
+        <!-- Genre dropdown -->
+        <div class="col-6 col-md-3">
+          <select class="form-select mh-select" id="genreFilter" aria-label="Filter by genre">
+            <option value="">All Genres</option>
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Drama">Drama</option>
+            <option value="Horror">Horror</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Thriller">Thriller</option>
+          </select>
+        </div>
+
+        <!-- Movie count -->
+        <div class="col-6 col-md-3 text-end">
+          <span class="mh-movie-count" id="movieCount" aria-live="polite"></span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── Loading Spinner ──────────────────────────────── -->
+    <div class="text-center py-5" id="loadingSpinner" role="status" aria-label="Loading movies">
+      <div class="mh-spinner" aria-hidden="true"></div>
+      <p class="text-muted mt-3 mb-0">Fetching movies…</p>
+    </div>
+
+    <!-- ─── Error Alert ──────────────────────────────────── -->
+    <div
+      class="alert alert-danger d-flex align-items-start gap-2 d-none"
+      role="alert"
+      id="errorAlert"
+    >
+      <i class="bi bi-exclamation-triangle-fill flex-shrink-0 mt-1" aria-hidden="true"></i>
+      <div>
+        <strong>Connection Error</strong><br />
+        <span class="mh-error-msg">
+          Could not reach JSON Server. Make sure it is running:
+          <code>npx json-server --watch db.json</code>
+        </span>
+      </div>
+    </div>
+
+    <!-- ─── Empty State ──────────────────────────────────── -->
+    <div class="text-center py-5 d-none" id="emptyState" aria-live="polite">
+      <i class="bi bi-film mh-empty-icon" aria-hidden="true"></i>
+      <h4 class="mt-3 mb-1">No Movies Found</h4>
+      <p class="text-muted mb-0">Try a different search term or select a different genre.</p>
+    </div>
+
+    <!-- ─── Movies Grid ──────────────────────────────────── -->
+    <section id="movies-section" aria-label="Movie list">
+      <div
+        class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3 g-md-4"
+        id="moviesGrid"
+        aria-live="polite"
+      ></div>
+    </section>
+
+    <!-- ─── Recommendation Form ──────────────────────────── -->
+    <section class="mt-5 pt-4 border-top border-secondary" id="recommendSection" aria-label="Recommend a movie">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-9 col-xl-8">
+
+          <div class="mh-form-card p-4 p-md-5">
+
+            <h2 class="mh-section-title mb-1">
+              <i class="bi bi-plus-circle-fill text-danger me-2"></i>Recommend a Movie
+            </h2>
+            <p class="text-muted mb-4">Know a great film we're missing? Submit it below.</p>
+
+            <!-- Success message -->
+            <div class="alert alert-success d-flex align-items-center gap-2 d-none" id="formSuccess" role="alert">
+              <i class="bi bi-check-circle-fill flex-shrink-0" aria-hidden="true"></i>
+              <span>Movie recommended successfully! It is now live in the list.</span>
+            </div>
+
+            <form id="recommendForm" novalidate autocomplete="off">
+
+              <div class="row g-3">
+
+                <!-- Title -->
+                <div class="col-12 col-md-6">
+                  <label for="rf-title" class="form-label">
+                    Movie Title <span class="text-danger" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="rf-title"
+                    placeholder="e.g. The Godfather"
+                    maxlength="150"
+                  />
+                  <div class="mh-invalid-msg" id="err-title" role="alert" aria-live="polite"></div>
+                </div>
+
+                <!-- Genre -->
+                <div class="col-12 col-md-6">
+                  <label for="rf-genre" class="form-label">
+                    Genre <span class="text-danger" aria-hidden="true">*</span>
+                  </label>
+                  <select class="form-select" id="rf-genre">
+                    <option value="">Select a genre</option>
+                    <option value="Action">Action</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Sci-Fi">Sci-Fi</option>
+                    <option value="Thriller">Thriller</option>
+                  </select>
+                  <div class="mh-invalid-msg" id="err-genre" role="alert" aria-live="polite"></div>
+                </div>
+
+                <!-- Year -->
+                <div class="col-12 col-sm-4">
+                  <label for="rf-year" class="form-label">
+                    Release Year <span class="text-danger" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="rf-year"
+                    placeholder="e.g. 2023"
+                    min="1888"
+                    max="2028"
+                  />
+                  <div class="mh-invalid-msg" id="err-year" role="alert" aria-live="polite"></div>
+                </div>
+
+                <!-- Rating -->
+                <div class="col-12 col-sm-4">
+                  <label for="rf-rating" class="form-label">
+                    Rating (1–10) <span class="text-danger" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="rf-rating"
+                    placeholder="e.g. 8.5"
+                    min="1"
+                    max="10"
+                    step="0.1"
+                  />
+                  <div class="mh-invalid-msg" id="err-rating" role="alert" aria-live="polite"></div>
+                </div>
+
+                <!-- Poster URL -->
+                <div class="col-12 col-sm-4">
+                  <label for="rf-poster" class="form-label">
+                    Poster URL <span class="text-danger" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    type="url"
+                    class="form-control"
+                    id="rf-poster"
+                    placeholder="https://…"
+                  />
+                  <div class="mh-invalid-msg" id="err-poster" role="alert" aria-live="polite"></div>
+                </div>
+
+                <!-- Review -->
+                <div class="col-12">
+                  <label for="rf-review" class="form-label">
+                    Short Review <span class="text-danger" aria-hidden="true">*</span>
+                  </label>
+                  <textarea
+                    class="form-control"
+                    id="rf-review"
+                    rows="3"
+                    placeholder="Write a brief review (10 – 300 characters)…"
+                    maxlength="300"
+                  ></textarea>
+                  <div class="mh-invalid-msg" id="err-review" role="alert" aria-live="polite"></div>
+                </div>
+
+                <!-- Submit -->
+                <div class="col-12 d-flex justify-content-end">
+                  <button type="submit" class="btn btn-danger px-5" id="submitBtn">
+                    <i class="bi bi-send-fill me-2"></i>Submit Recommendation
+                  </button>
+                </div>
+
+              </div><!-- .row -->
+            </form>
+
+          </div><!-- .mh-form-card -->
+        </div>
+      </div>
+    </section>
+
+  </main><!-- /main -->
+
+  <!-- ═══════════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════════ -->
+  <footer class="mh-footer text-center" role="contentinfo">
+    <p class="mb-0 text-muted small">
+      <i class="bi bi-film text-danger me-1" aria-hidden="true"></i>
+      <strong class="text-white">MovieHub</strong>
+      &mdash; Built with Bootstrap 5 &amp; JSON Server &middot; Web Technologies SP26
+    </p>
+  </footer>
+
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmBmFf9xf2gz63bWqpAVcyM4hknu"
+    crossorigin="anonymous"
+  ></script>
+  <!-- App JS -->
+  <script src="app.js"></script>
+</body>
+</html>

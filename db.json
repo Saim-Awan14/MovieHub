@@ -1,0 +1,202 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "Inception",
+      "genre": "Sci-Fi",
+      "year": 2010,
+      "rating": 8.8,
+      "review": "A mind-bending thriller that challenges the boundaries of reality and dreams. Christopher Nolan at his finest.",
+      "poster": "https://img.omdbapi.com/?i=tt1375666&apikey=trilogy&h=400"
+    },
+    {
+      "id": 2,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008,
+      "rating": 9.0,
+      "review": "A masterpiece of superhero cinema. Heath Ledger's Joker is iconic and the story is deeply compelling.",
+      "poster": "https://img.omdbapi.com/?i=tt0468569&apikey=trilogy&h=400"
+    },
+    {
+      "id": 3,
+      "title": "The Shining",
+      "genre": "Horror",
+      "year": 1980,
+      "rating": 8.4,
+      "review": "Kubrick's chilling adaptation of Stephen King's novel remains one of the greatest horror films ever made.",
+      "poster": "https://img.omdbapi.com/?i=tt0081505&apikey=trilogy&h=400"
+    },
+    {
+      "id": 4,
+      "title": "The Grand Budapest Hotel",
+      "genre": "Comedy",
+      "year": 2014,
+      "rating": 8.1,
+      "review": "Wes Anderson's whimsical masterpiece bursting with color, wit, and an unforgettable ensemble cast.",
+      "poster": "https://img.omdbapi.com/?i=tt2278388&apikey=trilogy&h=400"
+    },
+    {
+      "id": 5,
+      "title": "Interstellar",
+      "genre": "Sci-Fi",
+      "year": 2014,
+      "rating": 8.6,
+      "review": "An emotionally devastating and visually stunning space epic that explores love transcending dimensions.",
+      "poster": "https://img.omdbapi.com/?i=tt0816692&apikey=trilogy&h=400"
+    },
+    {
+      "id": 6,
+      "title": "Parasite",
+      "genre": "Thriller",
+      "year": 2019,
+      "rating": 8.5,
+      "review": "Bong Joon-ho's genre-defying masterwork on class inequality that utterly subverts expectations.",
+      "poster": "https://img.omdbapi.com/?i=tt6751668&apikey=trilogy&h=400"
+    },
+    {
+      "id": 7,
+      "title": "Mad Max: Fury Road",
+      "genre": "Action",
+      "year": 2015,
+      "rating": 8.1,
+      "review": "A relentless, visually spectacular post-apocalyptic chase film that redefined action cinema.",
+      "poster": "https://img.omdbapi.com/?i=tt1392190&apikey=trilogy&h=400"
+    },
+    {
+      "id": 8,
+      "title": "A Quiet Place",
+      "genre": "Horror",
+      "year": 2018,
+      "rating": 7.5,
+      "review": "A brilliantly tense survival horror that uses silence as its greatest weapon. Deeply emotional.",
+      "poster": "https://img.omdbapi.com/?i=tt6644200&apikey=trilogy&h=400"
+    },
+    {
+      "id": 9,
+      "title": "The Wolf of Wall Street",
+      "genre": "Drama",
+      "year": 2013,
+      "rating": 8.2,
+      "review": "DiCaprio is electric in this wild, excess-fueled ride through Wall Street corruption. Scorsese at his most energetic.",
+      "poster": "https://img.omdbapi.com/?i=tt0993846&apikey=trilogy&h=400"
+    },
+    {
+      "id": 10,
+      "title": "Raiders of the Lost Ark",
+      "genre": "Adventure",
+      "year": 1981,
+      "rating": 8.4,
+      "review": "The quintessential adventure film that launched one of cinema's greatest franchises. Pure cinematic joy.",
+      "poster": "https://img.omdbapi.com/?i=tt0082971&apikey=trilogy&h=400"
+    },
+    {
+      "id": 11,
+      "title": "Get Out",
+      "genre": "Horror",
+      "year": 2017,
+      "rating": 7.7,
+      "review": "Jordan Peele's razor-sharp social commentary wrapped in a terrifying psychological horror package.",
+      "poster": "https://img.omdbapi.com/?i=tt5052448&apikey=trilogy&h=400"
+    },
+    {
+      "id": 12,
+      "title": "Avengers: Endgame",
+      "genre": "Action",
+      "year": 2019,
+      "rating": 8.4,
+      "review": "An unprecedented culmination of a decade of Marvel storytelling. Emotionally resonant and spectacularly entertaining.",
+      "poster": "https://img.omdbapi.com/?i=tt4154796&apikey=trilogy&h=400"
+    },
+    {
+      "id": 13,
+      "title": "The Martian",
+      "genre": "Sci-Fi",
+      "year": 2015,
+      "rating": 8.0,
+      "review": "Matt Damon is perfectly cast in this optimistic, witty survival story set on Mars. Science has never been this fun.",
+      "poster": "https://img.omdbapi.com/?i=tt3659388&apikey=trilogy&h=400"
+    },
+    {
+      "id": 14,
+      "title": "Knives Out",
+      "genre": "Thriller",
+      "year": 2019,
+      "rating": 7.9,
+      "review": "A deliciously clever whodunit with a stellar ensemble cast and genuine subversive surprises.",
+      "poster": "https://img.omdbapi.com/?i=tt8946378&apikey=trilogy&h=400"
+    },
+    {
+      "id": 15,
+      "title": "Superbad",
+      "genre": "Comedy",
+      "year": 2007,
+      "rating": 7.6,
+      "review": "The ultimate coming-of-age comedy. Hilariously raunchy yet surprisingly heartfelt about the end of an era.",
+      "poster": "https://img.omdbapi.com/?i=tt0420102&apikey=trilogy&h=400"
+    },
+    {
+      "id": 16,
+      "title": "1917",
+      "genre": "Drama",
+      "year": 2019,
+      "rating": 8.3,
+      "review": "Sam Mendes crafts an astonishing single-take illusion of a WWI mission. Heart-stopping from start to finish.",
+      "poster": "https://img.omdbapi.com/?i=tt8579674&apikey=trilogy&h=400"
+    },
+    {
+      "id": 17,
+      "title": "The Jungle Book",
+      "genre": "Adventure",
+      "year": 2016,
+      "rating": 7.4,
+      "review": "A stunning visual achievement that breathes new life into the classic tale with remarkable CGI and voice work.",
+      "poster": "https://img.omdbapi.com/?i=tt3040964&apikey=trilogy&h=400"
+    },
+    {
+      "id": 18,
+      "title": "Prisoners",
+      "genre": "Thriller",
+      "year": 2013,
+      "rating": 8.1,
+      "review": "A devastating, morally complex thriller driven by Hugh Jackman and Jake Gyllenhaal's powerhouse performances.",
+      "poster": "https://img.omdbapi.com/?i=tt1392214&apikey=trilogy&h=400"
+    },
+    {
+      "id": 19,
+      "title": "The Truman Show",
+      "genre": "Drama",
+      "year": 1998,
+      "rating": 8.1,
+      "review": "Jim Carrey's dramatic turn is brilliant in this prescient, thoughtful exploration of reality and surveillance.",
+      "poster": "https://img.omdbapi.com/?i=tt0120382&apikey=trilogy&h=400"
+    },
+    {
+      "id": 20,
+      "title": "Everything Everywhere All at Once",
+      "genre": "Sci-Fi",
+      "year": 2022,
+      "rating": 7.8,
+      "review": "A maximalist multiverse odyssey that somehow turns absurdist chaos into the most moving film about family in years.",
+      "poster": "https://img.omdbapi.com/?i=tt6710474&apikey=trilogy&h=400"
+    },
+    {
+      "id": 21,
+      "title": "John Wick",
+      "genre": "Action",
+      "year": 2014,
+      "rating": 7.4,
+      "review": "Keanu Reeves is unstoppable in this slick, stylishly choreographed revenge thriller that spawned a franchise.",
+      "poster": "https://img.omdbapi.com/?i=tt2911666&apikey=trilogy&h=400"
+    },
+    {
+      "id": 22,
+      "title": "Midsommar",
+      "genre": "Horror",
+      "year": 2019,
+      "rating": 7.1,
+      "review": "Ari Aster's folk horror masterpiece that unsettles in broad daylight. Visually unforgettable and deeply disturbing.",
+      "poster": "https://img.omdbapi.com/?i=tt8772262&apikey=trilogy&h=400"
+    }
+  ]
+}
